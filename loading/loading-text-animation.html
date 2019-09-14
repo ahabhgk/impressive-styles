@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Loading text animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      background: #031321;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .loading {
+      border-bottom: 14px solid #222;
+      padding: 10px;
+      color: #222;
+      position: relative;
+      font-size: 10vw;
+    }
+
+    .loading::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      padding: 10px;
+      color: #03a9f4;
+      border-bottom: 14px solid #03a9f4;
+      animation: move 2s infinite;
+    }
+
+    @keyframes move {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading" data-text="Loading...">Loading...</div>
+</body>
+</html>
