@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Water Wave On Hover</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: Helvetica, Arial, sans-serif;
+      background: #111;
+    }
+    li {
+      list-style: none;
+    }
+    li>a {
+      position: relative;
+      font-size: 40px;
+      font-weight: bold;
+      display: block;
+      text-decoration: none;
+      color: rgba(255, 255, 255, .1);
+    }
+    li>a::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: url(./wave.png) repeat-x;
+      background-size: auto 100%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: wave 2s linear infinite;
+      transition: .6s;
+      width: 0;
+      overflow: hidden;
+    }
+    li>a:hover::before {
+      width: 100%;
+    }
+    @keyframes wave {
+      from { background-position: 0; }
+      to { background-position: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><a href="#" data-text="Home">Home</a></li>
+    <li><a href="#" data-text="About">About</a></li>
+    <li><a href="#" data-text="Content">Content</a></li>
+  </ul>
+</body>
+</html>
